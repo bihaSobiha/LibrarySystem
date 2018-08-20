@@ -86,7 +86,16 @@ public class editSubClassification extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         String mid=request.getParameter("mainClassificationId");
-      
+        String bookId = request.getParameter("bookID");
+        String title = request.getParameter("title");
+        String author = request.getParameter("auth");
+        int YOP=Integer.parseInt(request.getParameter("YofPublish"));
+        int LPY=Integer.parseInt(request.getParameter("lastPrintYr"));
+        int NOP=Integer.parseInt(request.getParameter("NoOfPages"));
+        String ISBN = request.getParameter("ISBNno");
+        String MC  = request.getParameter("mainClassificationId");
+        String SC  = request.getParameter("sID");
+        
         try {
             //processRequest(request, response);
             List<MainClassificationDetails> mainClassificatons = MainClassificationDAO.getMainClassific();
@@ -95,11 +104,16 @@ public class editSubClassification extends HttpServlet {
             request.setAttribute("subClassifications", subClassificatons);
             
             AddBook book= new AddBook();
-            book.setBookId(request.getParameter("bookID"));
-            request.setAttribute("bookID", request.getParameter("bookID"));
-            request.setAttribute("title", request.getParameter("title"));
-            request.setAttribute("auth", request.getParameter("auth"));
-            request.setAttribute("mainClassificationId", request.getParameter("mainClassificationId"));           
+            book.setBookId(bookId);
+            book.setTitle(title);
+            book.setAuthor(author);
+            book.setLastPrintedYear(LPY);
+            book.setYearOfPublishing(YOP);
+            book.setISBNno(ISBN);
+            book.setNoOfPages(NOP);
+            book.setMainClassification(MC);
+            book.setSubClassification(SC);
+            request.setAttribute("abc", book);         
 //            request.getRequestDispatcher("./pages/AddBookDetails.jsp").forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(editSubClassification.class.getName()).log(Level.SEVERE, null, ex);
