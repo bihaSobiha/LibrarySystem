@@ -42,7 +42,7 @@
                                             <div class="form-group">
                                                 <label>Select Main classification ID</label>
                                                 <select class="form-control" name="Mcid">
-                                                    <option value="-1">select</option>
+                                                    <option value="-1">Choose one from here</option>
                                                 <%
                                                     try {
                                                         String sql = "select * from mainclassification";

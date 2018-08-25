@@ -55,6 +55,7 @@
                                         <div class="form-group">
                                             <label>Select Main classification </label>
                                             <select class="form-control" name="mainClassificationId" id="main_classification" onChange="changeSubClassification(this.form);">
+                                                <option value="0">Choose one from here</option>
                                                 <c:forEach var="item" items="${mainClassifications}">
                                                     <option value="${item.mcId}" <c:if test="${item.mcId eq mainClassificationId}" >Selected="true"</c:if>>${item.mcName}</option>
                                                 </c:forEach>
@@ -63,6 +64,7 @@
                                         <div class="form-group">
                                             <label>Select Sub classification </label>
                                             <select class="form-control" name="sID" id="sub_classification">
+                                                <option value="0">Choose one from here</option>
                                                 <c:forEach var="item" items="${subClassifications}">
                                                     <option value="${item.scId}"> ${item.scName}</option>
                                                 </c:forEach>
@@ -71,7 +73,7 @@
                                         <div class="form-group">
                                             <label>Year of publishing </label>
                                             <select id="YofPublish" name="YofPublish" class="form-control">
-                                                <option value="-1">Select</option>
+                                                <option value="-1">Choose one from here</option>
                                                 <%
                                                     for (int i = 1500; i < 4000; i++) {%>
                                                 <option value="<%=i%>"><%=i%></option>
@@ -82,7 +84,7 @@
                                         <div class="form-group">
                                             <label>Last printed Year</label>
                                             <select class="form-control" name="lastPrintYr" >
-                                                <option value="-1">Select</option>
+                                                <option value="-1">Choose one from here</option>
                                                 <%
                                                     for (int i = 1500; i < 4000; i++) {%>
                                                 <option value="<%=i%>"><%=i%></option>

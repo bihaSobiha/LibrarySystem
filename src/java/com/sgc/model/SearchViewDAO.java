@@ -22,7 +22,11 @@ public class SearchViewDAO {
         DbConnection dbConnection = new DbConnection();
         Connection con = dbConnection.getDbConnection();
 
-        String query = "select * from book_details";
+        String query = "select * from book_details b "
+                + "INNER JOIN mainclassification m "
+                + "ON b.MainClassification = m.McID "
+                + "INNER JOIN subclassification s "
+                + "ON b.SubClassification = s.ScID";
         if (key != null && value != null) {
 //            query = query + String.format(" where b.%s=\"%s\"", key, value);
             query += String.format(" where book_details.%s=\"%s\"", key, value);
@@ -36,8 +40,8 @@ public class SearchViewDAO {
             addbook.setBookId(rs.getString("BookId"));
             addbook.setTitle(rs.getString("Title"));
             addbook.setAuthor(rs.getString("Author"));
-            addbook.setMainClassification(rs.getString("mainClassification"));
-            addbook.setSubClassification(rs.getString("subClassification"));
+            addbook.setMainClassification(rs.getString("McName"));
+            addbook.setSubClassification(rs.getString("ScName"));
             addbook.setYearOfPublishing(rs.getInt("YearOfPublishing"));
             addbook.setLastPrintedYear(rs.getInt("LastPrintedYear"));
             addbook.setISBNno(rs.getString("ISBNno"));
