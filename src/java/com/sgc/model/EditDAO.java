@@ -37,8 +37,8 @@ public class EditDAO {
             addbook.setBookId(rs.getString("BookId"));
             addbook.setTitle(rs.getString("Title"));
             addbook.setAuthor(rs.getString("Author"));
-            addbook.setMainClassification(rs.getString("mainClassification"));
-            addbook.setSubClassification(rs.getString("subClassification"));
+            addbook.setMainClassification(rs.getString("MainClassification"));
+            addbook.setSubClassification(rs.getString("SubClassification"));
             addbook.setYearOfPublishing(rs.getInt("YearOfPublishing"));
             addbook.setLastPrintedYear(rs.getInt("LastPrintedYear"));
             addbook.setISBNno(rs.getString("ISBNno"));
