@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/MyWork/LibrarySystem/src/java/com/sgc/controller/SearchViewController.java</file>
+            <file>file:/E:/MyWork/LibrarySystem/src/java/com/sgc/model/SearchViewDAO.java</file>
+            <file>file:/E:/MyWork/LibrarySystem/web/pages/Edit.jsp</file>
+            <file>file:/E:/MyWork/LibrarySystem/src/java/com/sgc/controller/editSubClassification.java</file>
+            <file>file:/E:/MyWork/LibrarySystem/src/java/com/sgc/controller/BookController.java</file>
+            <file>file:/E:/MyWork/LibrarySystem/web/pages/SearchView.jsp</file>
+        </group>
     </open-files>
 </project-private>

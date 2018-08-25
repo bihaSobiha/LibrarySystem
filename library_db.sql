@@ -32,7 +32,11 @@ CREATE TABLE `book_details` (
   `LastPrintedYear` int(11) NOT NULL,
   `ISBNno` varchar(45) NOT NULL,
   `NoOfPages` int(11) NOT NULL,
-  PRIMARY KEY (`BookId`)
+  PRIMARY KEY (`BookId`),
+  KEY `MainClassification_idx` (`MainClassification`),
+  KEY `SubClassification_idx` (`SubClassification`),
+  CONSTRAINT `MainClassification` FOREIGN KEY (`MainClassification`) REFERENCES `mainclassification` (`mcid`) ON UPDATE CASCADE,
+  CONSTRAINT `SubClassification` FOREIGN KEY (`SubClassification`) REFERENCES `subclassification` (`scid`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,7 +46,7 @@ CREATE TABLE `book_details` (
 
 LOCK TABLES `book_details` WRITE;
 /*!40000 ALTER TABLE `book_details` DISABLE KEYS */;
-INSERT INTO `book_details` VALUES ('B01','DWE','defre','MC01','s1',1526,1510,'defre',12);
+INSERT INTO `book_details` VALUES ('B01','DWE','defre','MC02','S3',1526,1510,'defre',12),('B02','sds','sobi','MC02','S5',1516,1514,'defre',10),('B03','DWE','dsf','MC01','S4',1522,1521,'defre',120);
 /*!40000 ALTER TABLE `book_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,7 +87,7 @@ CREATE TABLE `subclassification` (
   `ScName` varchar(45) NOT NULL,
   PRIMARY KEY (`ScID`),
   KEY `McID_idx` (`McID`),
-  CONSTRAINT `McID` FOREIGN KEY (`McID`) REFERENCES `mainclassification` (`mcid`)
+  CONSTRAINT `McID` FOREIGN KEY (`McID`) REFERENCES `mainclassification` (`mcid`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -93,7 +97,7 @@ CREATE TABLE `subclassification` (
 
 LOCK TABLES `subclassification` WRITE;
 /*!40000 ALTER TABLE `subclassification` DISABLE KEYS */;
-INSERT INTO `subclassification` VALUES ('s1','MC01','CSC'),('S2','MC01','PHYSICS'),('S3','MC02','MEDIA');
+INSERT INTO `subclassification` VALUES ('s1','MC01','CSC'),('S2','MC01','Physics'),('S3','MC02','MEDIA'),('S4','MC01','CHEMISTRY'),('S5','MC02','LAW');
 /*!40000 ALTER TABLE `subclassification` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -106,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-19 17:32:42
+-- Dump completed on 2018-08-25 11:04:29
