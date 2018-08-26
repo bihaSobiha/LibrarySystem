@@ -74,6 +74,7 @@ public class DeleteController extends HttpServlet {
             
             request.getRequestDispatcher("SearchViewController").forward(request, response);
         } catch (SQLException ex) {
+            request.getRequestDispatcher("SearchViewController").forward(request, response);
             Logger.getLogger(DeleteController.class.getName()).log(Level.SEVERE, null, ex);
         }    
         //request.getRequestDispatcher("pages/SearchView.jsp").forward(request, response);

@@ -71,6 +71,7 @@ public class DelMcController extends HttpServlet {
             DeleteDAO.deleteMc(mcId);            
             request.getRequestDispatcher("McSearchViewController").forward(request, response);
         } catch (SQLException ex) {
+            request.getRequestDispatcher("McSearchViewController").forward(request, response);
             Logger.getLogger(DelMcController.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }

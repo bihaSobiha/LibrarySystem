@@ -73,6 +73,7 @@ public class DelScController extends HttpServlet {
             
             request.getRequestDispatcher("ScSearchViewController").forward(request, response);
         } catch (SQLException ex) {
+            request.getRequestDispatcher("ScSearchViewController").forward(request, response);
             Logger.getLogger(DelScController.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }
