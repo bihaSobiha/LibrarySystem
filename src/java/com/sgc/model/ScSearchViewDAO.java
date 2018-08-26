@@ -24,7 +24,7 @@ public class ScSearchViewDAO {
         Connection con = dbConnection.getDbConnection();
         Statement statement = con.createStatement();
 //        ResultSet rs = statement.executeQuery("select * from mainclassification");
-        String query = "select * from subclassification";
+        String query = "SELECT * FROM subclassification as s inner join mainclassification as m on s.McID=m.McID;";
 
         if (key != null && value != null) {
 //            query = query + String.format(" where b.%s=\"%s\"", key, value);
@@ -35,7 +35,7 @@ public class ScSearchViewDAO {
         while (rs.next()) {
             SubClassificationDetails Sc = new SubClassificationDetails();
             Sc.setScId(rs.getString("ScID"));
-            Sc.setMcId(rs.getString("McID"));
+            Sc.setMcId(rs.getString("McName"));
             Sc.setScName(rs.getString("ScName"));
 
             results.add(Sc);
